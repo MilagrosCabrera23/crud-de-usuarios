@@ -37,20 +37,98 @@ CRUD de usuarios utilizando **FastAPI**, **MySQL** y **SQLAlchemy**, con validac
 ```
 
 ## 🧪 Endpoints principales
-### ✅ `/proyectos`
-Devuelve la lista de proyectos para mostrar en el frontend del portafolio.
+### 🔹1. `GET /users/` — Obtener todos los usuarios
 
-- **Método:** `GET`
-- **Respuesta:** JSON con la información de los proyectos.
+**Descripción:** Lista todos los usuarios de la base de datos.
 
-### ✅ `/contacto`
-Recibe el formulario de contacto y envía un correo con los datos.
+**Respuesta exitosa:**
 
-- **Método:** `POST`
-- **Body:** JSON con los campos: `nombre`, `telefono`, `email`, `asunto`, `mensaje`
-- **Validaciones:** implementadas con `Pydantic`
-- **Envío:** mediante `FastAPI-Mail` usando variables de entorno
+```json
+[
+  {
+    "id": 1,
+    "name": "Milagros Cabrera",
+    "email": "mili@example.com",
+    "telefono": "3511234567",
+    "fecha_nacimiento": "2000-01-01"
+  },
+  {
+    "id": 2,
+    "name": "Juan Pérez",
+    "email": "juan@example.com",
+    "telefono": "3519876543",
+    "fecha_nacimiento": "1995-05-20"
+  }
+]
+```
+### 2.🔹 GET /users/{id} — Obtener un usuario por ID
+Descripción: Devuelve los datos del usuario correspondiente al ID indicado.
 
+Respuesta exitosa:
+```json
+{
+  "id": 1,
+  "name": "Milagros Cabrera",
+  "email": "mili@example.com",
+  "telefono": "3511234567",
+  "fecha_nacimiento": "2000-01-01"
+}
+```
+Error si no existe:
+
+```json
+{
+  "detail": "No encontrado"
+}
+```
+
+### 3.🔹 POST /users/ — Crear nuevo usuario
+Descripción: Crea un nuevo usuario en la base de datos.
+
+Cuerpo de solicitud (JSON):
+```json
+{
+  "name": "Milagros Cabrera",
+  "email": "mili@example.com",
+  "password": "clave1234",
+  "telefono": "3511234567",
+  "fecha_nacimiento": "2000-01-01"
+}
+```
+Respuesta exitosa:
+
+```json
+{
+  "id": 1,
+  "name": "Milagros Cabrera",
+  "email": "mili@example.com",
+  "telefono": "3511234567",
+  "fecha_nacimiento": "2000-01-01"
+}
+```
+🛑 Nota: El campo password se recibe pero no se devuelve por seguridad.
+
+### 4.🔹 DELETE /users/{id} — Eliminar usuario
+Descripción: Elimina el usuario indicado por su ID.
+
+Respuesta exitosa:
+
+```json
+{
+  "id": 1,
+  "name": "Milagros Cabrera",
+  "email": "mili@example.com",
+  "telefono": "3511234567",
+  "fecha_nacimiento": "2000-01-01"
+}
+```
+Error si no existe:
+
+```json
+{
+  "detail": "No encontrado"
+}
+```
 ---
 
 ##  Crear el entorno virtual
