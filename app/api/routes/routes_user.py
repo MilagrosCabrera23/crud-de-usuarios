@@ -4,7 +4,8 @@ from app.database.session import SessionLocal
 from app.schemas.user import UserCreate, UserResponse
 from app.crud.user import create_user, get_user, get_users, delete_user
 from app.crud.user import get_user_by_email
-from app.api.dependencies import get_db
+from app.api.dependencies.bd import get_db
+
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
