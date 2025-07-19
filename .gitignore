@@ -1,0 +1,53 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.log
+*.sqlite3
+*.db
+env/
+venv/
+ENV/
+.venv/
+.Python
+migrations/
+*.egg-info/
+pip-wheel-metadata/
+
+# VSCode
+.vscode/
+
+# Entornos virtuales
+.venv/
+env/
+venv/
+
+# Archivos de entorno
+.env
+.env.*
+
+# Sistemas operativos
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# Otros
+coverage/
+htmlcov/
+*.cover
+*.log
+*.tmp
+*.bak
+*.swp
+*.lock
+*.orig

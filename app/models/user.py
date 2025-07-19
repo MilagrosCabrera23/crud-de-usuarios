@@ -10,5 +10,5 @@ class User(Base):
     name = Column(String(255), nullable=False)
     password = Column(String(255), nullable=False)
     telefono = Column(String(255), nullable=False)
-    fecha_nacimiento = Column(String(255), nullable=False)
+    fecha_nacimiento = Column(Date, nullable=False)
     email = Column(String(255), unique=True, nullable=False)
